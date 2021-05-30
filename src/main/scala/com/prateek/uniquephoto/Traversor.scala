@@ -21,10 +21,12 @@ object Traversor {
           case ImageFile() =>
             val newIdt = idt._1
               .map(id => {
-                val updatedFiles = id.files.prepended(path)
+                val updatedFiles = id.files.prepended(path.getFileName.toString)
                 id.copy(files = updatedFiles)
               })
-              .orElse(Some(ImageDirectory(root, Seq(path))))
+              .orElse(
+                Some(ImageDirectory(root, Seq(path.getFileName.toString)))
+              )
             (newIdt, idt._2)
           case _ => idt
         }
@@ -46,15 +48,15 @@ object Traversor {
     val tika = new Tika
 
     def unapply(path: Path): Boolean = {
-      val mimeType = tika.detect(path.toFile)
-//      println(s"file: ${path.getFileName}, mimeType: $mimeType")
-      mimeType.contains("image")
+      val bool = path.toString.matches("(?i).+\\.(jpg|avi)$")
+//      println(s"file: ${path.getFileName}, bool: $bool")
+      bool
     }
   }
 }
 
-case class ImageDirectory(dir: Path, files: Seq[Path]) {
+case class ImageDirectory(dir: Path, files: Seq[String]) {
   override def toString: String = {
-    s"dir: $dir, \r\nfile: ${files.map(f => f.getFileName)}\r\n"
+    s"dir: $dir, \r\nfile: ${files.foreach(println)}\r\n"
   }
 }
