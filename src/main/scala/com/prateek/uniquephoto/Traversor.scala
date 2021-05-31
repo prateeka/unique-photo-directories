@@ -102,11 +102,18 @@ object ExcludeDirectory {
       "automobiles",
       "krishna",
       "Software",
+      "Thomson Prometric - Committed Registration_files",
       "userSoftware",
       "hi",
       "Ghazals",
       "humtum",
       "workspace",
+      "eclipseWorkspaces",
+      "gitRepositories",
+      ".Trash-1000",
+      "Installer",
+      "books on gift",
+      "sops",
       "Songs New"
     )
 
