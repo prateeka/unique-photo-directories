@@ -39,11 +39,11 @@ class Traversor {
   }
 
   def traverse(root: Path): Unit = {
-    val f = pool.submit(new DirectoryExaminer(root))
+    val f = pool.submit(new DirectoryChecker(root))
     clq.add(f)
   }
 
-  class DirectoryExaminer(dir: Path) extends Callable[ImageDirectoryOption] {
+  class DirectoryChecker(dir: Path) extends Callable[ImageDirectoryOption] {
     override def call(): Option[ImageDirectory] = {
       val scalaPaths: List[String] =
         Using(Files.list(dir)) { s => s.toScala(List).map(_.toString) }.get
