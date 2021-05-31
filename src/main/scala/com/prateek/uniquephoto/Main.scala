@@ -7,6 +7,7 @@ object Main extends App {
   val path =
 //    (Paths.get("/"))
 //    Paths.get("/Users")
-    Paths.get("/Volumes/FreeAgent Drive/backup")
+//    Paths.get("/Volumes/FreeAgent Drive/backup")
+  Paths.get("/Volumes/FreeAgent Drive")
   t.start(path).foreach(println)
 }

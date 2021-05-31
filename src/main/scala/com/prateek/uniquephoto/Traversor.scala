@@ -101,6 +101,12 @@ object ExcludeDirectory {
       "mailInRebate",
       "automobiles",
       "krishna",
+      "Software",
+      "userSoftware",
+      "hi",
+      "Ghazals",
+      "humtum",
+      "workspace",
       "Songs New"
     )
 
